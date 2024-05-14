@@ -1,0 +1,49 @@
+name: Android Release
+
+# 1
+on:
+  # 2
+  push:
+    branches: [ "master" ]
+  #  pull_request:
+  #    branches: [ "master" ]
+
+  # 3
+#  workflow_dispatch:
+
+# 4
+jobs:
+  # 5
+  build:
+    # 6
+    runs-on: ubuntu-latest
+
+    # 7
+    steps:
+      # 8
+      - uses: actions/checkout@v1
+      # 9
+      - uses: actions/setup-java@v1
+        with:
+          distribution: 'zulu'
+          java-version: "12.x"
+      # 10
+      - uses: subosito/flutter-action@v2
+        with:
+          # 11
+          flutter-version: "3.0.0"
+          channel: 'stable'
+      # 12
+      - name: Get dependencies
+        run: flutter pub get
+      #      - run: flutter test
+
+      # Runs a set of commands using the runners shell
+      - name: Start release build
+        run: flutter build apk --release
+      - name: push to release on github
+        uses: ncipollo/release-action@v1
+        with:
+          Artifacts: "build/app/outputs/flutter-apk/app-release.apk"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}
