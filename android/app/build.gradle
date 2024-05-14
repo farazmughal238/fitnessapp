@@ -64,7 +64,7 @@ android {
         release {
             keyAlias 'upload'
             keyPassword '123456'
-            storeFile file('D:/keystore/upload-keystore.jks')
+            storeFile file('keystore/upload-keystore.jks')
             storePassword '123456'
         }
     }
