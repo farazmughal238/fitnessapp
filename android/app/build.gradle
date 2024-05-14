@@ -60,14 +60,14 @@ android {
         versionName flutterVersionName
     }
 
-    /*signingConfigs {
+    signingConfigs {
         release {
             keyAlias 'upload'
             keyPassword '123456'
             storeFile file('keystore/upload-keystore.jks')
             storePassword '123456'
         }
-    }*/
+    }
     buildTypes {
         release {
             minifyEnabled true

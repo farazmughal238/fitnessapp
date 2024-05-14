@@ -448,7 +448,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                 }).toList();
                               },
                               touchTooltipData: LineTouchTooltipData(
-                                tooltipBgColor: AppColors.secondaryColor1,
                                 tooltipRoundedRadius: 20,
                                 getTooltipItems:
                                     (List<LineBarSpot> lineBarsSpot) {
@@ -887,7 +886,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             }).toList();
                           },
                           touchTooltipData: LineTouchTooltipData(
-                            tooltipBgColor: AppColors.secondaryColor1,
                             tooltipRoundedRadius: 20,
                             getTooltipItems: (List<LineBarSpot> lineBarsSpot) {
                               return lineBarsSpot.map((lineBarSpot) {
